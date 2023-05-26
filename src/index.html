@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cw13</title>
+    <link rel="stylesheet" href="./../dist/css/customApp.css" />
+    <link rel="stylesheet" href="./../dist/css/app.css" />
+  </head>
+
+  <body>
+    <!-- Modal save -->
+    <div id="ModelSave" class="absolute w-per-100 h-per-100 flex justify-center items-center bg-rgba-50 hidden">
+        <div class="w-52 h-16 rounded-xl bg-green-500 flex items-center justify-center text-white font-bold">
+            <p>ویزیت شما ثبت شد</p>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div id="Modal" class="modal flex justify-center items-center hidden">
+      <div class="rounded-md p-1 text-base bg-white">
+        <div class="info">
+          <img
+            data-image="image"
+            class="w-15 h-10"
+            src=""
+            alt=""
+          />
+          <p data-name="name" class=""></p>
+          <p data-family="family"></p>
+          <p data-Expertise="Expertise"></p>
+        </div>
+        <h1 class="text-center p-3">رزرو نوبت</h1>
+
+        <div class="reserv(this)e bg-gray-300 pb-1 pt-5 rounded-t-md">
+          <div class="flex justify-center">
+            <input
+              data-name="name"
+              class="m-2 rounded-md w-60 p-1 outline-none"
+              type="text"
+              placeholder="نام"
+            />
+            <input
+              data-family="family"
+              class="m-2 rounded-md w-60 p-1 outline-none"
+              type="text"
+              placeholder="نام خانوداگی"
+            />
+          </div>
+          <div class="flex justify-center">
+            <input
+              data-phoneNumber="phoneNumber"
+              class="m-2 rounded-md w-60 p-1 outline-none"
+              type="number"
+              placeholder="شماره موبایل بیمار"
+            />
+          </div>
+          <div class="btn text-center mt-5">
+            <button
+              onclick="saveReserv(this)"
+              class="rounded-lg pl-6 pr-6 pb-1 pt-1 text-white bg-slate-700 m-1 shadow-2xl cursor-pointer"
+            >
+              شنبه
+            </button>
+
+            <button
+              onclick="saveReserv(this)"
+              class="rounded-lg pl-6 pr-6 pb-1 pt-1 text-white bg-slate-700 m-1 shadow-2xl cursor-pointer"
+            >
+              یکشنبه
+            </button>
+
+            <button
+              onclick="saveReserv(this)"
+              class="rounded-lg pl-6 pr-6 pb-1 pt-1 text-white bg-slate-700 m-1 shadow-2xl cursor-pointer"
+            >
+              جمعه
+            </button>
+          </div>
+        </div>
+        <div class="bg-gray-300 rounded-b-md flex justify-center pt-5 mb-2">
+            <button
+              onclick="cancel(this)"
+              class="rounded-lg pl-6 pr-6 pb-1 pt-1 text-white bg-slate-700 m-1 shadow-2xl cursor-pointer"
+            >
+              کنسل
+            </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container text-base">
+      <div
+        class="header flex justify-center text-center w-full h-16 bg-sky-800 mr-10 p-5 rounded-md"
+      >
+        <div class="dropdown text-white mr-10">
+          <button onclick="myFunction()" class="dropbtn rounded-md p-1">
+            تخصص ها
+          </button>
+          <div id="myDropdown" class="dropdown-content rounded-xl">
+            <button class="block m-2 bg-gray-600 h-8 w-40 rounded-lg">
+              دندانپزشک
+            </button>
+            <button class="block m-2 bg-gray-600 h-8 w-40 rounded-lg">
+              پزشک اطفال
+            </button>
+            <button class="block m-2 bg-gray-600 h-8 w-40 rounded-lg">
+              متخصص قلب
+            </button>
+            <button class="block m-2 bg-gray-600 h-8 w-40 rounded-lg">
+              متخصص داخلی
+            </button>
+            <button class="block m-2 bg-gray-600 h-8 w-40 rounded-lg">
+              مغز و اعصاب
+            </button>
+          </div>
+          <a href="#" class="mr-40 rounded-md p-1"> سوالات متداول </a>
+          <input
+            type="text"
+            placeholder="جستجو..."
+            class="input rounded-md p-1 justify-end mr-60 text-black outline-none"
+          />
+        </div>
+      </div>
+
+      <div class="main bg-blue-200 mr-10 rounded-md w-full h-full">
+        <div
+          class="inline-block mr-16 mt-5 mb-5 bg-blue-300 rounded-md text-white p-5"
+        >
+          <img
+            class="w-15 h-10"
+            src="./icon/doctor-presenting-something-isolated-white-background_1368-5834.avif"
+            alt=""
+          />
+          <p data-name="name">نام : نریمان</p>
+          <p data-family="family">نام خانوادگی : نجفی</p>
+          <p data-Expertise="Expertise">تخصص : دندانپزشک</p>
+          <button
+            onclick="reserv(this)"
+            class="cursor-pointer rounded-2xl pl-3 text-sm pr-3 bg-blue-500 pb-1 pt-1 mt-5 mr-5 shadow-2xl"
+          >
+            رزرو پزشک
+          </button>
+        </div>
+        <div
+          class="inline-block mr-16 mt-5 mb-5 bg-blue-300 rounded-md text-white p-5"
+        >
+          <img
+            class="w-15 h-10"
+            src="./icon/doctor-smiling-with-stethoscope_1154-36.avif"
+            alt=""
+          />
+          <p data-name="name">نام : فرزاد</p>
+          <p data-family="family">نام خانوادگی : جهانگیری</p>
+          <p data-Expertise="Expertise">تخصص: قلب</p>
+          <button
+            onclick="reserv(this)"
+            class="cursor-pointer rounded-2xl pl-3 text-sm pr-3 bg-blue-500 pb-1 pt-1 mt-5 mr-5 shadow-2xl"
+          >
+            رزرو پزشک
+          </button>
+        </div>
+        <div
+          class="inline-block mr-16 mt-5 mb-5 bg-blue-300 rounded-md text-white p-5"
+        >
+          <img
+            class="w-15 h-10"
+            src="./icon/dr-dk-gupta.jpg"
+            alt=""
+          />
+          <p data-name="name">نام : بهروز</p>
+          <p data-family="family">نام خانوادگی : عشقی</p>
+          <p data-Expertise="Expertise">تخصص: اطفال</p>
+          <button
+            onclick="reserv(this)"
+            class="cursor-pointer rounded-2xl pl-3 text-sm pr-3 bg-blue-500 pb-1 pt-1 mt-5 mr-5 shadow-2xl"
+          >
+            رزرو پزشک
+          </button>
+        </div>
+        <div
+          class="inline-block mr-16 mb-5 bg-blue-300 rounded-md text-white p-5"
+        >
+          <img
+            class="w-15 h-10"
+            src="./icon/png-transparent-foreign-doctor-material-doctors-doctor-material-male-doctor.png"
+            alt=""
+          />
+          <p data-name="name">نام : سهراب</p>
+          <p data-family="family">نام خانوادگی : کاشف</p>
+          <p data-Expertise="Expertise">تخصص : داخلی</p>
+          <button
+            onclick="reserv(this)"
+            class="cursor-pointer rounded-2xl pl-3 text-sm pr-3 bg-blue-500 pb-1 pt-1 mt-5 mr-5 shadow-2xl"
+          >
+            رزرو پزشک
+          </button>
+        </div>
+        <div
+          class="inline-block mr-16 mt-5 mb-5 bg-blue-300 rounded-md text-white p-5"
+        >
+          <img
+            class="w-15 h-10"
+            src="./icon/png-transparent-man-smiling-compression-ings-physician-health-care-nursing-male-doctor-miscellaneous-service-expert-thumbnail.png"
+            alt=""
+          />
+          <p data-name="name">نام : امیررضا</p>
+          <p data-family="family">نام خانوادگی : قبادیان</p>
+          <p data-Expertise="Expertise">تخصص: مغز و اعصاب</p>
+          <button
+            onclick="reserv(this)"
+            class="cursor-pointer rounded-2xl pl-3 text-sm pr-3 bg-blue-500 pb-1 pt-1 mt-5 mr-5 shadow-2xl"
+          >
+            رزرو پزشک
+          </button>
+        </div>
+        <div
+          class="inline-block mr-16 mt-5 mb-5 bg-blue-300 rounded-md text-white p-5"
+        >
+          <img
+            class="w-15 h-10"
+            src="./icon/doctor-presenting-something-isolated-white-background_1368-5834.avif"
+            alt=""
+          />
+          <p data-name="name">نام : هومن</p>
+          <p data-family="family">نام خانوادگی : صحرایی</p>
+          <p data-Expertise="Expertise">تخصص: مغز و اعصاب</p>
+          <button
+            onclick="reserv(this)"
+            class="cursor-pointer rounded-2xl pl-3 text-sm pr-3 bg-blue-500 pb-1 pt-1 mt-5 mr-5 shadow-2xl"
+          >
+            رزرو پزشک
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/dropdawn.js"></script>
+    <script src="./js/app.js"></script>
+  </body>
+</html>
